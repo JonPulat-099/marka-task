@@ -25,7 +25,7 @@ watch(search, (value) => {
       <template #title>
         <span>Поиск работает от 3 символов</span>
       </template>
-      <WarningOutlined style="color: #fa8c16;" />
+      <WarningOutlined style="color: #fa8c16" />
     </a-tooltip>
     <a-input v-model:value="search" placeholder="Найти..." :disabled="loading">
       <template #suffix>

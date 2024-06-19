@@ -1,1 +1,1 @@
-export * from "./amo-crm"
+export * from './amo-crm'

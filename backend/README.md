@@ -1,4 +1,13 @@
-# service-amocrm
+# service-amocrm (Backend)
+##  Запуск
+Создайте файл .env на основе .env.example. Введите необходимые значения env.
+
+```bash
+$ cp .env.example .env # create .env
+$ bun install
+$ bun run build
+$ bun run start
+```
 
 To install dependencies:
 
@@ -6,10 +15,16 @@ To install dependencies:
 bun install
 ```
 
+To build:
+
+```bash
+bun run build
+```
+
 To run:
 
 ```bash
-bun run index.ts
+bun run start
 ```
 
 This project was created using `bun init` in bun v1.1.10. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LeadsList } from "@/widgets";
+import { LeadsList } from '@/widgets'
 </script>
 
 <template>
