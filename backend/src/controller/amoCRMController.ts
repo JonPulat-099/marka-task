@@ -27,5 +27,5 @@ export const fetchLeads = async (req: FastifyRequest, res: FastifyReply) => {
         }
     }
 
-    return resp
+    return res.code(resp.status).send(resp)
 }

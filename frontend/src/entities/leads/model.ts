@@ -23,7 +23,7 @@ export const useLeadsStore = defineStore('leads', () => {
 
             leads.value = formattingLeads(data.data)
         } catch (e) {
-            console.log('e -> ', e);
+            // do nothing
         }
         loading.value = false
     }

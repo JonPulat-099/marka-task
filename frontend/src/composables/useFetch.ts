@@ -1,4 +1,5 @@
 import axios, { AxiosError, type AxiosResponse, type InternalAxiosRequestConfig } from "axios";
+import { notification } from 'ant-design-vue';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL
 
@@ -17,13 +18,16 @@ const onResponse = (response: AxiosResponse): AxiosResponse => {
 const onErrorResponse = async (
     error: AxiosError | Error
 ): Promise<AxiosError | AxiosResponse> => {
-
+    
     if (axios.isAxiosError(error)) {
-        const { status } = (error.response as AxiosResponse) ?? {};
-
+        const { status, data } = (error.response as AxiosResponse) ?? {};
+        
         switch (status) {
             case 400: {
-                // "Bad Request"
+                notification.error({
+                   message: 'Ошибка',
+                   description: data.message
+                })
                 break;
             }
 
