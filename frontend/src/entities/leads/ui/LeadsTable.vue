@@ -34,7 +34,7 @@ const columns = [
 </script>
 
 <template>
-  <a-table :dataSource="leads" :columns="columns" :loading="loading" :pagination="false" :scroll="{x: 991}">
+  <a-table :dataSource="leads" :columns="columns" :loading="loading" :pagination="false" :scroll="{x: 991}" expandRowByClick>
     <template #bodyCell="{ column, record }">
       <template v-if="column.key === 'status'">
         <a-tag :color="record.status.color" style="color: rgb(102, 102, 102)">
@@ -61,11 +61,11 @@ const columns = [
         <span style="margin-left: 8px;">
           {{ record.contact.name }}
         </span>
-        <a :href="`tel:${record.contact.phone}`" style="margin-left: 10px;">
+        <a v-if="record.contact.phone" :href="`tel:${record.contact.phone}`" style="margin-left: 10px;">
           <PhoneOutlined />
         </a>
         <a-divider type="vertical" style="width: 1px !important;"/>
-        <a :href="`mailto:${record.contact.email}`">
+        <a v-if="record.contact.email" :href="`mailto:${record.contact.email}`">
           <MailOutlined />
         </a>
       </a-space>
