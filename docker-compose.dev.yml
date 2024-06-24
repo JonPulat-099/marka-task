@@ -1,0 +1,24 @@
+version: "3"
+services:
+  fastify-back:
+    env_file: "./backend/.env"
+    build:
+      context: ./backend
+      dockerfile: ./Dockerfile
+      target: dev
+    ports:
+      - "2332:2332"
+    command: sh -c "bun run dev"
+
+  vue-front:
+    env_file:
+      - ./frontend/.env
+    build:
+      context: ./frontend
+      dockerfile: ./Dockerfile
+      target: dev
+    ports:
+      - "5599:5599"
+    depends_on:
+      - fastify-back
+    command: sh -c "bun run dev"
